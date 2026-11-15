@@ -1,15 +1,46 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>gen-motion</title>
-    <style>
-      html, body { margin: 0; height: 100%; overflow: hidden; background: #111; }
-      canvas { display: block; }
-    </style>
-  </head>
-  <body>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glass Cube</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: #111; }
+    canvas { display: block; }
+    #ui {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 10;
+    }
+    .btn {
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 30%;          /* almost circular */
+      background: #333;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+    .btn:hover { background: #555; }
+    .btn.active { outline: 2px solid #fff; }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <button class="btn" data-type="tex" data-file="/tex1.png">1</button>
+    <button class="btn" data-type="tex" data-file="/tex2.png">2</button>
+    <button class="btn" data-type="tex" data-file="/tex3.png">3</button>
+    <button class="btn" data-type="bg" data-file="/bg1.gif">A</button>
+    <button class="btn" data-type="bg" data-file="/bg2.gif">B</button>
+    <button class="btn" data-type="bg" data-file="/bg3.gif">C</button>
+    <button class="btn" id="rippleBtn">~</button>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
