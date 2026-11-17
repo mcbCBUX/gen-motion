@@ -61,6 +61,7 @@ const innerOriginal = innerPos.array.slice();
 // Initial background
 scene.background = backgrounds['/bg3.gif'];
 
+
 // Button handlers
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -84,7 +85,7 @@ document.querySelectorAll('.btn').forEach(btn => {
 
 // Ripple button
 let ripple = 0;
-let rippleActive = false;
+let rippleActive = true;
 
 document.getElementById('rippleBtn').addEventListener('click', () => {
   rippleActive = !rippleActive;
@@ -141,6 +142,31 @@ function animate() {
   renderer.render(scene, camera);
 }
 renderer.setAnimationLoop(animate);
+
+// Music controls (single clean version)
+const music = document.getElementById('bgMusic');
+if (music) {
+  music.src = '/track1.mp3';
+  music.play().catch(() => {});
+
+  document.querySelectorAll('.btn[data-type="audio"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const file = btn.dataset.file;
+      if (!file) return;
+
+      if (music.src.endsWith(file) && !music.paused) {
+        music.pause();
+        btn.classList.remove('active');
+        return;
+      }
+
+      music.src = file;
+      music.play().catch(() => {});
+      document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+}
 
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;

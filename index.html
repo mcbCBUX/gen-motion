@@ -23,16 +23,31 @@
     /* your existing styles */
   </style>
 </head>
+
+<audio id="bgMusic" loop></audio>
+
 <body>
   <div id="ui">
-    <button class="btn" data-type="tex" data-file="/tex1.png">1</button>
-    <button class="btn" data-type="tex" data-file="/tex2.png">2</button>
-    <button class="btn" data-type="tex" data-file="/tex3.png">3</button>
-    <button class="btn" data-type="bg" data-file="/bg1.gif">A</button>
-    <button class="btn" data-type="bg" data-file="/bg2.gif">B</button>
-    <button class="btn" data-type="bg" data-file="/bg3.gif">C</button>
-    <button class="btn" id="rippleBtn">~</button>
-  </div>
+  <!-- Textures -->
+  <button class="btn" data-type="tex" data-file="/tex1.png">1</button>
+  <button class="btn" data-type="tex" data-file="/tex2.png">2</button>
+  <button class="btn" data-type="tex" data-file="/tex3.png">3</button>
+
+  <!-- Backgrounds -->
+  <button class="btn" data-type="bg" data-file="/bg1.gif">A</button>
+  <button class="btn" data-type="bg" data-file="/bg2.gif">B</button>
+  <button class="btn" data-type="bg" data-file="/bg3.gif">C</button>
+
+  <!-- Audio tracks -->
+  <button class="btn" data-type="audio" data-file="/track1.mp3">♪1</button>
+  <button class="btn" data-type="audio" data-file="/track2.mp3">♪2</button>
+  <button class="btn" data-type="audio" data-file="/track3.mp3">♪3</button>
+
+  <!-- Ripple last -->
+  <button class="btn" id="rippleBtn">~</button>
+</div>
+
+
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
